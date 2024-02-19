@@ -2,76 +2,9 @@
 \minitoc
 This chapter introduces the basic concept of the entire course, namely, probability. We discuss why probability was introduced as a scientific concept and how it has been formalized mathematically in terms of a probability model. Following this we develop some of the basic mathematical results associated with the probability model.
 
-\section{Probability: A Measure of Uncertainty}
-\lipsum[1-10]
+\input{ch1_sec1_probability_a_measure_of_uncertainty}
+\input{ch1_sec2_probability_models}
 
-\subsection{Why Do We Need Probability Theory?}
-\lipsum[1-10]
-
-\section{Probability Models}
-A formal definition of probability begins with a \emph{sample space}, often written  $S$. This sample space is any set that lists all possible \emph{outcomes} (or, \emph{responses}) of some unknown experiment or situation. For example, perhaps
-\begin{equation}
-    S =  \text{\{rain, snow, clear\}} \notag
-\end{equation}
-when predicting tomorrow's weather. Or perhaps $S$ is the set of all positive real numbers, when predicting next week's stock price. The point is, $S$ can be any set at all, even an infinite. We usually write $s$ for an element of $S$, so that $s \in S$. Note that $S$ describes only those things that we are interested in; if we are studying weather, then rain and snow are in $S$, but tomorrow's stock prices are not.
-
-A probability model also requires a collection of \emph{events}, which are subsets of $S$ to which  probabilities can be assigned. For the above weather example, the subsets \{rain\}, \{snow\}, \{rain,snow\}, \{rain, clear\}, \{rain, snow, clear\}, and even the empty set $\emptyset = \{\,\}$ are all examples of subsets of $S$ that could be events. Note that here the comma means ``or''; thus, \{rain, snow\} is the event that it will rain \emph{or} snow. We will generally assume that \emph{all} subsets of $S$ are events. (In fact, in complicated situations there are some technical restrictions on what subsets can or cannot be events, according to the mathematical subject of measure theory. But we will not concern ourselves with such technicalities here.)
-
-Finally, and most importantly, a probability model requires a \emph{probability measure}\index{probability measure}, usually written $P$. This probability measure must assign, to each event $A$, a probability $P(A)$. We require the following properties:
-\begin{enumerate}
-    \item $P(A)$ is always a nonnegative real number, between 0 and 1 inclusive.
-    \item $P(\emptyset) = 0$, i.e., if $A$ is the empty set $\emptyset$, then $P(A)=0$.
-    \item $P(S)=1$, i.e., if $A$ is the entire sample space $S$, then $P(A)=1$.
-    \item $P$ is \emph{(countably) additive}, meaning that if $A_1, A_2, \dots$ is finite or countable sequence of disjoint events, then
-    \begin{equation}\label{eq:additive_rule}
-        P(A_1 \cup A_2 \cup \ldots) = P(A_1) + P(A_2) + \ldots\,.
-    \end{equation}
-\end{enumerate}
-
-The first of these properties says that we shall measure all probabilities on a scale from 0 to 1, where 0 means impossible and 1 (or 100\%) means certain. The second property says the probability that \emph{nothing} happens is 0; in other words, it is impossible that \emph{no} outcome will occur. The third property says the probability that \emph{something} happens is 1; in other words, it is certain that \emph{some} outcome must occur.
-
-The fourth property is the mist subtle. It says that we can calculate probabilities of complicated events by adding up  the probabilities of smaller events, provided those smaller events are \emph{disjoint} and together contain the entire complicated event. Note that events  are \emph{disjoint}\index{disjoint} if they contain no outcomes in common. For example, \{rain\} and \{snow, clear\} are disjoint, whereas \{rain\} and \{rain, clear\} are not disjoint. (We are assuming for simplicity that it cannot both rain \emph{and} snow tomorrow). Thus, we should have $P(\{\text{rain}\}) + P(\{\text{snow, clear}\}) = P(\{\text{rain, snow, clear}\})$, but we do \emph{not} expect to have $P(\{\text{rain}\}) + P(\{\text{rain, clear}\}) = P(\{\text{rain, rain, clear}\})$ (the latter being the same as $P(\{\text{rain, clear}\})$).
-
-We now formalize the definition of a probability model.
-\begin{definition}[Probability model]\index{probability model}
-A \emph{probability model}    consists of a nonempty set called the sample space $S$; a collection of events that are subsets of $S$; and a probability measure $P$ assigning a probability between 0 and 1 to each event, with $P(\emptyset)=0$ and $P(S)=1$ and with $P$ additive as in \eqref{eq:additive_rule}.
-\end{definition}
-
-\begin{example}
-    Consider again the weather example, with $S = \{\text{rain, snow, clear}\}$. Suppose that the probability of rain is 40\%, the probability of snow is 15\%, and the probability of a clear day is 45\%. We can express this as $P(\{\text{rain}\})=0.40$, $P(\{\text{snow}\})=0.15$, and $P(\{\text{clear}\})=0.45$.
-
-    For this example, of course $P(\emptyset)=0$, i.e., it is impossible that \emph{nothing} will happen tomorrow. Also $P(\{\text{rain, snow, clear}\})=1$, because we are assuming that exactly \emph{one} of rain, snow, or clear must occur tomorrow. (To be more realistic, we might say that we are predicting the weather at exactly 11:00 A.M. tomorrow.) Now, what is the probability that it will rain \emph{or} snow tomorrow? Well, by additivity property, we see that
-    $$
-    P(\{\text{rain, snow}\}) = P(\{\text{rain}\}) + P(\{\text{snow}\}) = 0.40 + 0.15 = 0.55\,.
-    $$
-    We thus conclude that, as expected, there is a 55\% chance of rain \emph{or} snow tomorrow.
-\end{example}
-
-\begin{example}
-    Suppose your candidate has a 60\% chance of winning an election in progress.Then $S=\{\text{win,lose}\}$, with $P(\text{win})=0.6$ and $P(\text{lose})=0.4$\,. Note that $P(\text{win})+P(\text{lose})=1$\,.
-\end{example}
-
-\begin{example}
-    Suppose we flip a fair coin, which can come up either heads ($H$) or tails ($T$) with equal probability. Then $S=\{H, T\}$, with $P(H)=P(T)=0.5$\,. Of course, $P(H)+P(T)=1$\,.
-\end{example}
-
-\begin{example}
-    Suppose we flip three fair coins in a row and keep track of the sequence of heads and tails that result. Then
-    $$
-    S = \{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\}.
-    $$
-    Furthermore, each of these eight outcomes is equally likely. Thus, $P(HHH)=1/8$, $P(TTT)=1/8$, etc. Also, the probability that the first coin is heads \emph{and} the second coin is tails, but the third coin can be anything, is equal to the sum of the probabilities of the event $HTH$ and $HTT$, i.e., $P(HTH)+P(HTT)=1/8+1/8=1/4$\,.
-\end{example}
-
-\begin{example}
-    Suppose we flip three fair coins in a row but care only about the number of heads that result. Then $S=\{0,1,2,3\}$\,. However, the probabilities of these four outcomes are \emph{not} equally likely; we will see later that in fact $P(0)=P(3)=1/8$, while $P(1)=P(2)=3/8$\,.
-\end{example}
-
-
-We note that it is possible to define probability models on more complicated (e.g., uncountably infinite) sample spaces as well.
-
-\subsection{Venn Diagrams and Subsets}
-\lipsum[1-10]
 
 \section{Properties of Probability Models}
 \lipsum[1-10]
@@ -80,13 +13,19 @@ We note that it is possible to define probability models on more complicated (e.
 \lipsum[1-10]
 
 \subsection{Combinatorial Principles}
+\lipsum[1-10]
 
 \section{Conditional Probability and Independence}
+\lipsum[1-10]
 
 \subsection{Conditional Probability}
+\lipsum[1-10]
 
 \subsection{Independence of Events}
+\lipsum[1-10]
 
 \section{Continuity of $P$}
+\lipsum[1-10]
 
 \section{Further Proofs (Advanced)}
+\lipsum[1-10]
