@@ -5,11 +5,13 @@
 \usepackage{amsfonts, amssymb, amsmath,lipsum, minitoc,imakeidx}
 %\usepackage[standard,amsmath,hyperref]{ntheorem}
 \usepackage{amsthm}
+%\usepackage{parskip}
 
 \def\sectionautorefname{Section}
 \def\chapterautorefname{Chapter}
 
 \usepackage[titletoc,title,header]{appendix}
+\usepackage{enumitem}
 
 %\frenchspacing
 
@@ -19,6 +21,7 @@
 \oddsidemargin=-0mm
 \evensidemargin=-0mm
 \topmargin=-10mm
+
 
 \widowpenalty=10000
 \clubpenalty=10000
@@ -32,3 +35,11 @@
 \newtheorem{example}{EXAMPLE}[section]
 
 \newcommand{\term}[1]{\emph{#1}\index{#1}}
+
+\newenvironment{discussion}
+{\subsection*{\Large{\textbf{DISCUSSION TOPICS}}} \begin{enumerate}[label={\textbf{\thesection.\arabic*}}]}
+{\end{enumerate}}
+
+\newenvironment{summary}
+{\subsection*{Summary of Section \thesection} \begin{itemize}}
+{\end{itemize}}

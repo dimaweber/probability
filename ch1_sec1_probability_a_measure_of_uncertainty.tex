@@ -1,4 +1,4 @@
-\section{Probability: A Measure of Uncertainty}
+\section{Probability: A Measure of Uncertainty}\label{master_of_uncertain}
 Often in life we are confronted by our own ignorance. Whether we are pondering tonight's traffic jam, tomorrow's weather, next week's stock prices, an upcoming election, or where we left our hat, often we do not know an outcome with certainty. Instead, we are forced to guess, to estimate, to hedge our bets.
 
 Probability is the science of uncertainty. It provides precise mathematical rules for understanding and analyzing our own ignorance. It does not tell us tomorrow's weather or next week's stock prices; rather, it gives us a framework for working with our limited knowledge and for making sensible decisions based on what we do and do not know.
@@ -10,8 +10,7 @@ In this text, we will develop a more precise understanding of what it means to s
 tomorrow. We will learn how to work with ideas of randomness, probability, expected value, prediction, estimation,
 etc., in ways that are sensible and mathematically clear.
 
-There are also other sources of randomness beside uncertainty. For example, computers often use \term{pseudorandom
-numbers} to make games fun, simulations accurate, and searches efficient. Also, according
+There are also other sources of randomness beside uncertainty. For example, computers often use \term{pseudorandom numbers} to make games fun, simulations accurate, and searches efficient. Also, according
 to the modern theory of quantum mechanics, the makeup of atomic matter is in some sense \emph{truly} random. All such
 sources of randomness can be studied using the techniques of this text.
 
@@ -38,4 +37,83 @@ probability theory. They popularized the subject in the western world, both as a
 and as having important applications in physics, chemistry, and later in computer science, economics, and finance.
 
 \subsection{Why Do We Need Probability Theory?}
-\lipsum[1-10]
+Probability theory comes up very often in our daily lives. We offer a few examples here.
+
+Suppose you are considering buying a ``Lotto 6/49'' lottery ticket. In this lottery, you are to pick six distinct
+integers between 1 and 49. Another six distinct integers between 1 and 49 are then selected at random by the lottery
+company. If the two sets of six integers are identical, then you win the jackpot.
+
+After mastering \autoref{unif_prob_fint_spc}, you will know how to calculate that the probability of the two sets
+matching is equal to one chance in 13,983,816. This is, it is about 14 million times more likely that you will not
+win the jackpot than that you will. (These are not very good odds!)
+
+Suppose the lottery ticket cost \$1 each. After mastering expected values in \autoref{chap:expect}, you will know
+that you should not even \emph{consider} buying a lottery ticket unless the jackpot is more than \$14 million (which
+it usually is not). Furthermore, if the jackpot is ever more than \$14 million, then likely many other people will
+buy lottery tickets that week, leading to a larger probability that you will have to \emph{share} the jackpot with
+other winners even if you do win --- so it is probably not in your favor to buy a lottery ticket even then.
+
+Suppose instead that a ``friend'' offers you a bet. He has three cards, one red on both sides, one black on both
+sides, and one red on one side  and black on the other. He mixes the three cards in a hat, picks one at random, and
+places it flat on the table with the only one side showing. Suppose that one side is red. He then offers to bet his
+\$4 against your \$3 that the other side of the card is also red.
+
+At first you might think it sounds like the probability that the other side is also red is 50\% thus, a good bet.
+However, after mastering conditional probability (\autoref{cond_prob_indp}), you will know that, conditional on one
+side being red, the conditional probability that the other side is also red is equal to 2/3. So, by the theory of
+expected values (\autoref{chap:expect}), you will know that you should not accept your ``friend's'' bet.
+
+Finally, suppose he suggests that you flip a coin one thousand times. Your ``friend'' says that if the coin comes up
+heads at least six hundred times, then  he will  pay you \$100; otherwise, you have to pay him just \$1.
+
+At first you might think that, while 500 heads is the most likely, there is still a \emph{reasonable} chance that 600
+heads will appear --- at least good enough to justify accepting your friend's \$100 to \$1 bet. However, after
+mastering the laws of large numbers (\autoref{chap:sampl_dist_n_lim}), you will know that as the number of coin flips
+get large, it become more and more likely that number of heads is very close to half of the total number of coin
+flips. In fact, in this case, there is less than one chance in ten billion of getting more than 600 heads! Therefore,
+you should not accept this bet, either.
+
+As these examples show, a good understanding of probability theory will allow you to correctly assess probabilities
+in everyday situations, which will in turn allow you to make wiser decisions. It might even save you money!
+
+Probability theory also plays a key role in many important applications of science and technology. For example, the
+design of a nuclear reactor must be such that the escape of radioactivity into the environment is an extremely rare
+event. Of course, we would like to say that it is categorically impossible for this to ever happen, but reactors are
+complicated systems, built up from many interconnected subsystems, each of which we know will fail to function
+properly at some time. Furthermore, we ca never definitely say that a natural event like an earthquake cannot occur
+that would damage the reactor sufficiently to allow an emission. The best we can do is try to quantify our
+uncertainty concerning the failures of reactor components or the occurrence of natural events that would lead to such
+an event.  This is where probability enters the picture. Using probability as a tool to deal with the uncertainties,
+the reactor can be designed to ensure that an unacceptable emission has an extremely small probability --- say once
+in a billion years -- of occurring.
+
+The gambling and nuclear reactor examples deal essentially with the concept of \term{risk} --- the risk of losing
+money, the risk of being exposed to at injurious level of  radioactivity, etc. In fact, we are exposed to risk all the
+ time. When we ride in a car, or take an airplane flight, or even walk down the street, we are exposed to risk. We
+ know that the risk of injury in such circumstances is never zero, yet we still engage in these activities. This is
+ because we intuitively realize that the probability of an accident occurring is extremely low.
+
+ So we are using probability every day in our lives to assess risk. As the problems we face, individually or
+ collectively, become more complicated, we need to refine and develop our rough, intuitive ideas about probability to
+ form a clear and precise approach. This is why probability theory has been developed as a subject. In fact, the
+ insurance industry has been developed to help us cope with risk. Probability is the tool used to determine what you
+ pay to reduce your risk or to compensate you or your family in case of a personal injury.
+
+\begin{summary}
+    \item Probability theory provides us with a precise understanding of uncertainty.
+    \item This understanding can help us make predictions, make better decisions, assess risk, and even make money.
+ %   \item А по-русски ты умеешь ли ? Давай  вот сейчас и проверим, да или нет. Метрополитен Подземелье Черезмерный.
+\end{summary}
+
+\begin{discussion}
+    \item Do you think that tomorrow's weather and next week's stock prices are ``really'' random, or is just a
+    convenient way to discuss and analyze them?
+    \item Do you think it is possible for probabilities to depend on who is observing them, or at what time?
+    \item Do you find it surprising that probability theory was not discussed as a mathematical subject until the
+    seventeenth century? Why or why not?
+    \item In what ways is probability important for such subjects as physics, computer science, finance? Explain.
+    \item What are examples from your own life where thinking about probabilities did save --- or could have saved
+    --- you money or helped you to make a better decision? (List as many as you can.)
+    \item Probabilities are often depicted in popular movies and television programs. List as many examples as you
+    can. Do you think the probabilities were portrayed there in a ``reasonable'' way?
+\end{discussion}

@@ -1,0 +1,13 @@
+*.log
+*.dvi
+*.pdf
+*.toc
+*.thm
+*.mtc*
+*.aux
+*.idx
+*.ilg
+*.ind
+*.maf
+*.out.ps
+*.synctex.gz
