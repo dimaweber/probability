@@ -7,12 +7,20 @@
 \usepackage{amsthm}
 %\usepackage{parskip}
 
+%\usepackage{tikz}
+% \def\firstcircle{(90:1.75cm) circle (1.5cm)}
+% \def\secondcircle{(210:1.75cm) circle (1.5cm)}
+% \def\thirdcircle{(330:1.75cm) circle (1.5cm)}
+
+%\usepackage{venndiagram}
+
 \def\sectionautorefname{Section}
 \def\chapterautorefname{Chapter}
 
 \usepackage[titletoc,title,header]{appendix}
 \usepackage{enumitem}
 
+\usepackage[figwidth=10cm]{todonotes}
 %\frenchspacing
 
 %\pagestyle{plain}
@@ -26,7 +34,9 @@
 \widowpenalty=10000
 \clubpenalty=10000
 
-%\usepackage{showkeys}
+\usepackage{showkeys}
+
+\numberwithin{equation}{section}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -34,11 +44,26 @@
 \theoremstyle{plain}
 \newtheorem{example}{EXAMPLE}[section]
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+
 \newcommand{\term}[1]{\emph{#1}\index{#1}}
 
-\newenvironment{discussion}
-{\subsection*{\Large{\textbf{DISCUSSION TOPICS}}} \begin{enumerate}[label={\textbf{\thesection.\arabic*}}]}
+\newenvironment{problems}
+{\subsection*{\Large{\textbf{PROBLEMS}}} \begin{enumerate}[label={\textbf{P.\thesection.\arabic*}}]}
 {\end{enumerate}}
+
+\newenvironment{exercises}
+{\subsection*{\Large{\textbf{EXERCISES}}} \begin{enumerate}[label={\textbf{E.\thesection.\arabic*}}]}
+    {\end{enumerate}}
+
+\newenvironment{challeges}
+{\subsection*{\Large{\textbf{CHALLENGES}}} \begin{enumerate}[label={\textbf{C.\thesection.\arabic*}}]}
+    {\end{enumerate}}
+
+\newenvironment{discussion}
+{\subsection*{\Large{\textbf{DISCUSSION TOPICS}}} \begin{enumerate}[label={\textbf{D.\thesection.\arabic*}}]}
+    {\end{enumerate}}
 
 \newenvironment{summary}
 {\subsection*{Summary of Section \thesection} \begin{itemize}}

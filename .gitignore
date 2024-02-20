@@ -9,5 +9,6 @@
 *.ilg
 *.ind
 *.maf
+*.tdo
 *.out.ps
 *.synctex.gz

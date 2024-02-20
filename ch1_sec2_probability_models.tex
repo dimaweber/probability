@@ -115,4 +115,126 @@ spaces as well.
 \end{example}
 
 \subsection{Venn Diagrams and Subsets}
-\lipsum[1-10]
+\term{Venn diagrams} provide a very useful graphical method for depicting the sample space $S$ and subsets of it. For
+example, in \ref{venn_1} we have a Venn diagram showing the subset $A \subset S$ and the \term{complement}
+$$
+A^c = \{s:s\notin A\}
+$$
+of $A$. The rectangle denotes the entire sample space $S$. The circle (and its interior) denotes the subset~$A$; the
+region outside the circle, but inside $S$ denotes $A^c$.
+\begin{figure}[hb]
+\missingfigure{Venn 1}
+\caption{Venn diagram of the subsets $A$ and $A^c$ of the sample space $S$.}\label{venn_1}
+\end{figure}
+
+Two subsets $A \subset S$ and $B \subset S$ are depicted as two circles, as in \autoref{venn_2}. The
+\term{intersection}
+$$
+A \cap B = \{s:s \in A \text{ and } s \in B\}
+$$
+of subsets $A$ and $B$ is the set of elements  common to both sets and is depicted by the region where the two
+circles overlap. The set
+$$
+A \setminus B^c = \{s:s\in A \text{ and } s \notin B\}
+$$
+is called the \term{complement} \emph{of $B$ in $A$} and is depicted as the region inside the $A$ circle, but not
+inside the $B$ circle. This is the set of elements in   $A$ but not in $B$. Similarly, we have the complement of $A$
+in $B$, namely, $A^c \cap B$. Observe that the sets $A\cap B$, $A \cap B^c$, and $A^c \cap B$ are mutually disjoint.
+
+The \term{union}
+$$
+A \cup B = \{ s : s \in A \text{or} s \in B\}
+$$
+of sets $A$ and $B$ is the set of elements that are in either $A$ or $B$. In \autoref{venn_2}, it is depicted by the
+region covered by both circles. Notice that $ A \cup B = \left(A \cap B^c\right) \cup (A \cap B) \cup (A^c \cap B)$\,.
+
+
+There is one further region in \autoref{venn_2}. This is the complement of $A \cup B$, namely, the set of elements
+that
+are in neither $A$ nor $B$. So we immediately have
+$$
+    (A\cup B)^c = A^c \cap B^c\,.
+$$
+Similarly, we can show that
+$$
+    (A\cap B)^c = A^c \cup B^c
+    \,,
+$$
+namely, the subset of elements that are not in both $A$ and $B$ is given by the set of elements not in $A$ or not in
+$B$.
+\begin{figure}[hb]
+    \missingfigure{Venn 2}
+    \caption{Venn diagram depicting the subsets $A$, $B$, $A\cap B$, $A\cap B^c$, $A^c \cap B$, $A^c \cap B^c$ and $A
+    \cup B$.}\label{venn_2}
+\end{figure}
+
+
+Finally, we note that if $A$ and $B$ are disjoint subset, then it makes sense to depict these as drawn in
+\autoref{venn_3}, i.e., as two nonoverlapping circles because they have no elements in common.
+\begin{figure}[hb]
+    \missingfigure{Venn 3}
+    \caption{Venn diagram of disjoint subsets $A$ and $B$.}\label{venn_3}
+\end{figure}
+
+\begin{summary}
+    \item A probability model consists of a sample space $S$ and a probability measure $P$ assigning probabilities to
+    each event.
+    \item Different sorts of sets can arise as sample spaces.
+    \item Venn diagrams provide a convenient method for representing sets and the relationships among them.
+\end{summary}
+
+\begin{exercises}
+    \item Suppose $S=\{1,2,3\}$, with $P(\{1\})=1/2$, $P(\{2\})=1/3$, and $P(\{3\})=1/6$.
+        \begin{enumerate}
+            \item What is $P(\{1,2\})$?
+            \item What is $P(\{1,2,3\})$?
+            \item List all events $A$ such that $P(A)=1/2$.
+        \end{enumerate}
+    \item Suppose $S=\{1,2,3,4,5,6,7,8\}$, with $P(\{s\})=1/8$ for $1 \leqslant s \leqslant 8$.
+        \begin{enumerate}
+            \item What is $P(\{1,2\})$?
+            \item What is $P(\{1,2,3\})$?
+            \item How many events $A$ are there such that $P(A) = 1/2$?
+        \end{enumerate}
+    \item Suppose $S=\{1,2,3\}$, with $P(\{1\})=1/2$ and $P(\{1,2\})=2/3$. What must $P(\{2\})$ be?
+    \item Suppose $S=\{1,2,3\}$, and we try to define $P$ by $P(\{1,2,3\})=1$, $P(\{1,2\})=0.7$, $P(\{1,3\})=0.5$,
+    $P(\{2,3\})=0.7$, $P({1})=0.2$, $P(\{2\})=0.5$, $P(\{3\})=0.3$. Is $P$ a valid probability measure? Why or why
+    not?
+    \item Consider the uniform distribution on $[0,1]$. Let $s \in [0,1]$ be any outcome. What is $P(\{s\})$? Do you
+    find this result surprising?
+    \item Label the subregions in the Venn diagram in \autoref{venn_4} using the sets $A$, $B$, and $C$ and their
+    complements (just as we did in \autoref{venn_2}).
+    \item On Venn diagram, depict the set of elements that are in subsets $A$ or $B$ but \emph{not} in both. Also
+    write this as a subset involving unions and intersections of $A$, $B$, and their complements.
+    \item Suppose $S=\{1,2,3\}$, and $P(\{1,2\})=1/3$, and $P(\{2,3\})=2/3$. Compute $P(\{1\})$, $P(\{2\})$, and
+    $P(\{3\})$.
+    \item Suppose $S=\{1,2,3,4\}$, and $P(\{1\})=1/12$, and $P(\{1,2\})=1/6$, and $P(\{1,2,3\})=1/3$. Compute
+    $P(\{1\})$, $P(\{2\})$, $P(\{3\})$, and $P(\{4\})$.
+    \item Suppose $S=\{1,2,3\}$, and $P(\{1\})=P(\{3\})=2P(\{2\})$. Compute $P(\{1\})$, $P(\{2\})$, and $P(\{3\})$.
+    \item Suppose $S=\{1,2,3\}$, and $P(\{1\})=P(\{2\})+1/6$, and $P(\{3\})=2P(\{2\})$. Compute $P(\{1\})$,
+    $P(\{2\})$, and $P(\{3\})$.
+    \item Suppose $S=\{1,2,3,4\}$, and $P(\{1\})-1/8=P(\{2\})=3P(\{3\})=4P(\{4\})$. Compute $P(\{1\})$, $P(\{2\})$,
+    $P(\{3\})$ and $P(\{4\})$.
+\end{exercises}
+\begin{figure}[h]
+    \missingfigure{Venn 4}
+    \caption{Venn diagram of subsets $A$, $B$ and $C$.}\label{venn_4}
+\end{figure}
+
+\begin{problems}
+    \item Consider again the uniform distribution on $[0,1]$. Is it true that
+    $$
+    P([0,1]) = \sum_{s \in[0,1]}P(\{s\})\quad\text{?}
+    $$
+    How does this relate to the additivity property of probability measures?
+    \item Suppose $S$ is a finite or countable set. Is it possible that $P(\{s\})=0$ for every single $s\in{}S$? Why
+    or why not?
+    \item Suppose $S$ is an uncountable set. Is it possible that $P(\{s\})=0$ for every single $s\in S$? Why or why
+    not?
+\end{problems}
+
+\begin{discussion}
+    \item Does the additivity property make sense intuitively? Why or why not?
+    \item Is it important that we always have $P(S)=1$\,? How would probability theory change if this were not the
+    case?
+\end{discussion}
