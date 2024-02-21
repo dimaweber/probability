@@ -1,9 +1,12 @@
+% !TeX TXS-program:bibliography = txs:///biber
+
 \documentclass[a4paper]{book}
 \input{style}
 \title{Probability and Statistics: The Science of Uncertainty}
 \author{Michael J. Evans \and Jeffrey S. Rosenthal}
 
 \makeindex[intoc]
+\addbibresource{sources.bib}
 
 \begin{document}
 \maketitle
@@ -28,7 +31,6 @@
 \input{chapter11}
 
 
-
 \appendix
 \begin{appendices}
 \input{appA}
@@ -40,11 +42,11 @@
 
 \printindex
 
-\begin{thebibliography}{99}
-    \bibitem{B1}A First Look at Rigorous Probability Theory, Second Edition, by J.S.Rosenthal (World Scientific
-    Publishing, Singapore, 2006)
-\end{thebibliography}
+%\begin{thebibliography}{99}
+%    \bibitem{B1}A First Look at Rigorous Probability Theory, Second Edition, by J.S.Rosenthal (World Scientific Publishing, Singapore, 2006)
+%\end{thebibliography}
 
+\printbibliography
 
 \listoftodos
 \todototoc

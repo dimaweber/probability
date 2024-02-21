@@ -10,5 +10,9 @@
 *.ind
 *.maf
 *.tdo
+*.bbl
+*.bcf
+*.blg
+*.run.xml
 *.out.ps
 *.synctex.gz

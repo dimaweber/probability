@@ -96,13 +96,76 @@ application in probability theory when the uniform distribution is appropriate.
    permutations of length $n$.
 \end{example}
 
+\begin{example}[Counting Subsets]
+    Suppose 10 fair coins are flipped. What is the probability that exactly seven of them are heads? Here each possible sequence of 10 heads or tails (e.g., $HHHTTTHTTT$, $THTTTTHHHT$, etc.) is equally likely, and by the multiplication principle the total number of possible outcomes is equal to 2 multiplied by itself 10 times, or $2^{10}=1024$. But of these sequences, how many have exactly seven heads?
+
+    To answer this, notice that we may specify such a sequence by giving the positions of the seven heads, which involves choosing a subset of size 7 from the set of possible indices $\{1,\dots,10\}$. There are $10!/3!=10\times9\times\dots\times5\times4$ different permutations of length 7 from $\{1,\dots,10\}$, and each such permutation specifies a sequence of seven heads and three tails. But we can permute the indices specifying where the heads go in $7!$ different ways without changing the sequence of heads and tails. So the total number of outcomes with exactly seven heads is equal to $10!/(3!\cdot7!)=120$. The probability that exactly seven of the 10 coins are heads is therefore equal to $120/1024$, or just under 12\%.
+
+    In general, if we have a set $S$ of $n$ elements, then the number of different subsets of size $k$ that we can construct by choosing elements from $S$ is
+    $$
+        \binom n k = \frac{n!}{k!(n-k)!}\,,
+    $$
+    which is called the \term{binomial coefficient}. This follows by the same argument, namely, there are $n!/(n-k)!$ permutations of length $k$ obtained from the set; each such permutation, and $k!$ permutations obtained by permuting it, specify a unique subset of $S$.
+\end{example}
+
+It follows, for example, that the probability of obtaining exactly $k$ heads when flipping a total of $n$  fair coins is  given by
+$$
+    \binom{n}{k}2^{-n} = \frac{n!}{k!(n-k)!}2^{-n}\,.
+$$
+This is because there are $\binom n k$ different patterns of $k$ heads and $n-k$ tails, and a total of $2^n$ different sequences of $n$  heads and tails.
+
+More generally, if each coin has probability $\theta$ of being heads (and probability $1-\theta$ of being tails), where $0 \leqslant \theta \leqslant 1$, then the probability of obtaining exactly $k$ heads when flipping a total of $n$ such coins is given by
+\begin{equation}
+    \binom{n}{k}\cdot\theta^k\cdot(1-\theta)^{n-k} = \frac{n!}{k!(n-k)!}\cdot\theta^k\cdot(1-\theta)^{n-k}\,,
+\end{equation}
+because each of the $\binom{n}{k}$ different patterns of $k$ heads and $n-k$ tails has probability $\theta^k(1-\theta)^{n-k}$ of occurring (this follows from the discussion of independence in \autoref{independence_of_events}). If $\theta=1/2$, then this reduces to the previous formula.
+
+\begin{example}
+    \todo{add it}
+\end{example}
+
+\begin{summary}
+    \item \todo{add it}
+    \item \todo{add it}
+\end{summary}
+
+\begin{exercises}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+\end{exercises}
+
+\begin{problems}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+    \item \todo{add it}
+\end{problems}
+
+\begin{challeges}
+    \item \todo{add it}
+    \item \todo{add it}
+\end{challeges}
+
 \section{Conditional Probability and Independence}\label{cond_prob_indp}
 \lipsum[1-10]
 
 \subsection{Conditional Probability}
 \lipsum[1-10]
 
-\subsection{Independence of Events}
+\subsection{Independence of Events}\label{independence_of_events}
 \lipsum[1-10]
 
 \section{Continuity of $P$}
