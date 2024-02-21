@@ -4,15 +4,97 @@ This chapter introduces the basic concept of the entire course, namely, probabil
 
 \input{ch1_sec1_probability_a_measure_of_uncertainty}
 \input{ch1_sec2_probability_models}
-\input{ch1_sec3_properties_of_probability_models}
-
-
+\input{ch1_sec3_properties_of_probability_models }
 
 \section{Uniform Probability on Finite Spaces}\label{unif_prob_fint_spc}
-\lipsum[1-10]
+If the sample space $S$ is finite, then one possible probability measure on $S$ is the \term{uniform} probability
+measure, which assigns probability $1/|S|$ to each outcome. Here $|S|$ is the number of elements in the sample space
+$S$. By additivity, it then follows that for any event $A$ we have
+\begin{equation}
+    \label{eq:141}
+    P(A) = \frac{|A|}{|S|}\,.
+\end{equation}
+\begin{example}
+    Suppose we roll a six-sided die. The possible outcome are $S=\{1,2,3,4,5,6\}$, so that $|S|=6$. If the die is
+    fair, then we believe each outcome is equally likely. We thus set $P(\{i\})=1/6$ for each $i \in S$ so that
+    $P(\{3\})=1/6$, $P(\{4\})=1/6$, etc. It follows from \autoref{eq:141} that, for example, $P(\{3,4\})=2/6=1/3$,
+    $P(\{1,5,6\})=3/6=1/2$, etc. This is a good model of rolling a fair six-sided die once.
+\end{example}
+\begin{example}
+    For a second example, suppose we flip a fair coin once. Then $S=\{\text{heads, tails}\}$, so that $|S|=2$, and
+    $P(\{\text{heads}\})=P(\{\text{tails}\})=1/2$.
+\end{example}
+\begin{example}
+    Suppose now that we flip \emph{three different} fair coins. The outcome can be written as a sequence of three
+    letters, with each letter being $H$ (for heads) of $T$ (for tails). Thus,
+    $$
+    S = \{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\}\,.
+    $$
+    Here $|S|=8$, and each of the events is equally likely. Hence, $P(\{HHH\})=1/8$, $P(\{HHH,TTT\})=2/8=1/4$, etc.
+    Note also that, by additivity, we have, for example, that $P(\text{exactly two heads}) = P(\{HHT, HTH,
+    THH\})=1/8+1/8+1/8=3/8$, etc.
+\end{example}
+\begin{example}
+    For a final example, suppose we roll a fair six-sided die \emph{and} flip a fair coin. Then we can write
+    $$
+    S=\{1H,2H,3H,4H,5H,6H,1T,2T, 3T, 4T, 5T, 6T\}\,.
+    $$
+    Hence, $|S|=12$ in this case, and $\forall s \in S, P(s)=1/12$.
+\end{example}
 
 \subsection{Combinatorial Principles}
-\lipsum[1-10]
+Because of \autoref{eq:141}, problems involving uniform distributions on finite sample spaces often come down to
+being able to compute the sizes $|A|$ and $|S|$ of the sets involved. That is, we need to be good at \emph{counting}
+the number of elements in various sets. The science of counting is called \term{combinatorics}, and some aspects of
+it are very sophisticated. In the remainder of this section, we consider a few simple combinatorial rules and their
+application in probability theory when the uniform distribution is appropriate.
+
+\begin{example}[Counting Sequences: The Multiplication Principle]
+    Suppose we flip three fair coins and roll two fair six-sided dice. What is the probability that all three coins
+    come up heads and that both dice come up 6? Each coin has two possible outcomes (heads or tails), and each die
+    has six  possible outcomes $\{1,2,3,4,5,6\}$. The total number of possible outcomes of the three coins and two
+    dice is thus given by \emph{multiplying} three 2's and two 6's, i.e., $2\times2\times2\times6\times6=288$. This is
+    sometimes referred as the \term{multiplication principle}. There are thus 288 possible outcomes of our experiment
+    (e.g., $HHH66$, $HTH24$, $TTH15$, etc.). Of these outcomes, only one (namely, $HHH66$) counts as a success. Thus,
+    the probability that all three coins come up heads and both dice come up 6 is equal to 1/288.
+
+    Notice that we can obtain this result in an alternative way. The chance that any one of the coins comes up heads
+    is 1/2, and the chance that any one die comes 6 is 1/6. Furthermore, these events are all \emph{independent} (see
+    next section). Under independence, the probability that they \emph{all} occur is given by the product of their
+    individual probabilities, namely,
+    $$
+    (1/2)\times(1/2)\times(1/2)\times(1/6)\times(1/6)=1/288\,.
+    $$
+
+    More generally, suppose we have $k$ finite sets $S_1,\dots,S_k$ and we want to count the number of sequences of
+    length $k$ where the $i$th element comes from $S_i$, i.e., count the number of elements in
+    $$
+    S = \{(s_1,\dots,s_k) : s \in S_i\} = S_1 \times \dots \times S_k\,.
+    $$
+    The multiplication principle says that the number of such sequences is obtained by multiplying together the
+    number of elements in each set $S_i$, i.e.,
+    $$
+        |S| = |S_1|\times\dots\times|S_k|\,.
+    $$
+\end{example}
+
+\begin{example}
+    Suppose we roll two fair six-sided dice. What is the probability that the sum of the numbers showing is equal to 10? By the above multiplication principle, the total number of possible outcomes is equal to $6\times6=36$. Of these outcomes, there are three that sum to 10, namely, (4,6), (5,5), (6,4). Thus, the probability that the sum is 10 is equal to 3/36 or 1/12.
+\end{example}
+
+\begin{example}[\term{Counting permutations}]
+    Suppose four friends go to a restaurant, and each checks his or her coat. At the end of the meal, the four coats are \emph{randomly} returned to the four people. What is the probability that each of the four people gets his or her own coat? Here the total number of different ways the coats can be returned  is equal to $4\times3\times2\times1$, or $4!$ (i.e., four factorial). This is because the first coat can be returned to any of the four friends, the second coat to any of the three remaining friends, and so on. Only one of these assignments is correct. Hence, the probability that each if the four people gets his or her own coat is equal to $1/4!$, or 1/24.
+
+    Here we are counting permutations, or sequences of elements from a set where no element appears more than once. We can use the multiplication principle to count permutations more generally. For example, suppose $|S|=n$ and we want to count the number of permutations of length $k \leqslant n$ obtained from $S$, i.e., we want to count the number of elements of the set
+   $$
+   \{(s_1,\dots,s_k):s\in S, s_i \neq s_j \text{ when } i \neq j\}\,.
+   $$
+   Then we have $n$ choices for the first element $s_1$, $n-1$ choices for the second element, and finally $n-(k-1)=n-k+1$ choices for the last element. So there are $n\times(n-1)\times\dots\times(n-k+1)$ permutations of length $k$ from a set of $n$ elements. This can also be written as $n! / (n-k)!$. Notice that when $k=n$, there are
+   $$
+   n!=n\times(n-1)\times\dots\times2\times1
+   $$
+   permutations of length $n$.
+\end{example}
 
 \section{Conditional Probability and Independence}\label{cond_prob_indp}
 \lipsum[1-10]
