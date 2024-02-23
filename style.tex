@@ -1,6 +1,6 @@
 \usepackage{tgbonum}
 
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,pdfstartview=FitH]{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,pdfstartview=FitH]{hyperref}
 \usepackage[open,openlevel=1]{bookmark}
 \usepackage{amsfonts, amssymb, amsmath,lipsum, minitoc,imakeidx}
 %\usepackage[standard,amsmath,hyperref]{ntheorem}
@@ -27,18 +27,22 @@
 
 \usepackage[backend=biber, sorting=nyt, bibstyle=verbose, citestyle=authortitle]{biblatex}
 
+\usepackage{gnuplottex}
+
+\usepackage[english]{babel}
+
 %\pagestyle{plain}
-\textwidth=17cm
-\textheight=25cm
-\oddsidemargin=-0mm
-\evensidemargin=-0mm
-\topmargin=-10mm
+%\textwidth=17cm
+%\textheight=25cm
+%\oddsidemargin=-0mm
+%\evensidemargin=-0mm
+%\topmargin=-10mm
 
 
 \widowpenalty=10000
 \clubpenalty=10000
 
-\usepackage{showkeys}
+%\usepackage{showkeys}
 
 \numberwithin{equation}{section}
 
@@ -50,6 +54,8 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[section]
 \newcommand{\corollaryautorefname}{Corollary}
+\newcommand{\exampleautorefname}{Example}
+
 
 \newcommand{\term}[1]{\emph{#1}\index{#1}}
 

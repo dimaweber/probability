@@ -1,0 +1,33 @@
+\section{Conditional Probability and Independence}\label{cond_prob_indp}
+Consider again the three-coin example as in \autoref{example:143}, where we flip three different fair coins, and
+$$
+S=\{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\}\,,
+$$
+with $P(s)=1/8$ for each $s \in S$. What is the probability that the first coin comes up heads? Well, of  course , this should be 1/2. We can see this more formally by saying that $P(\text{first coin heads})=P(\{HHH, HHT, HTH, HTT\})=4/8=1/2$, as it should.
+
+But suppose  now that an informant tell us than exactly two of the three coins came up heads. \emph{Now} what is the probability that the first coin was heads?
+
+The point is that this informant has changed our available information, i.e., changed our level of ignorance. It follows that our corresponding probabilities should also change. Indeed, if we know that exactly two of coins were heads, then we know that the outcome was one of $HHT$, $HTH$, and $THH$. Because those three outcomes should (in this case) still all be equally likely, and because only the first two correspond to the first coin being heads, we conclude the following: if we know that exactly two of the three coins are heads, \emph{then} the probability that the first coin is heads is 2/3.
+
+More precisely, we have computed a \term{conditional probability}. That is, we have determined that \emph{conditional} on knowing that exactly two coins came up heads, the \emph{conditional probability} of the first coin being heads is 2/3. We write this in mathematical notation as
+$$
+P(\text{first coin heads} \mid \text{two coins heads}) = 2/3\,.
+$$
+Here the vertical bar $\mid$ stands for ``conditional on'', or ``given that''.
+
+\subsection{Conditional Probability}
+In general, given two events $A$ and $B$ with $P(B)>0$, the \term{conditional probability} of $A$ given $B$, written $P(A\mid B)$, stands for the fraction of the time that $A$ occurs once we \emph{know} that $B$ occurs. It is computed as the ratio of the probability that $A$ and $B$ \emph{both} occur, divided by the probability that $B$ occurs, as follows.
+
+\begin{definition}[Conditional probability]
+    Given two events $A$ and $B$, with $P(B)>0$, the conditional probability of $A$ given $B$ is equal to
+    \begin{equation}\label{eq:conditional_probability_definition}
+        P(A\mid B) = \frac{P(A \cap B)}{P(B)}\,.
+    \end{equation}
+\end{definition}
+
+The motivation for \autoref{eq:conditional_probability_definition} is as follow. The event $B$ will occur a fraction $P(B)$ of the time. Also, \emph{both} $A$ and $B$ will occur a fraction $P(A \cap B)$ of the time. The ratio $P(A \cap B) / P(B)$ thus gives the \emph{proportion} of the times when $B$ occurs, that $A$ \emph{also} occurs. That is, if we \emph{ignore} all the times that $B$ does not occur and consider only those times that $B$ does occur, then the ratio $P(A \cap B)/P(B)$ equals the fraction of the time that $A$ will also occur. This is precisely what is meant by the conditional probability of $A$ given $B$.
+
+In the example just computed, $A$ is the event that the first coin is heads, while $B$ is the event that exactly two coins were heads. Hence, in
+
+\subsection{Independence of Events}\label{independence_of_events}
+\lipsum[1-10]

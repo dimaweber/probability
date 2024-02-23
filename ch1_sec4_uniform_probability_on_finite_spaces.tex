@@ -16,7 +16,7 @@ $S$. By additivity, it then follows that for any event $A$ we have
     For a second example, suppose we flip a fair coin once. Then $S=\{\text{heads, tails}\}$, so that $|S|=2$, and
     $P(\{\text{heads}\})=P(\{\text{tails}\})=1/2$.
 \end{example}
-\begin{example}
+\begin{example}\label{example:143}
     Suppose now that we flip \emph{three different} fair coins. The outcome can be written as a sequence of three
     letters, with each letter being $H$ (for heads) of $T$ (for tails). Thus,
     $$
@@ -143,31 +143,52 @@ which is very large number.
 \end{summary}
 
 \begin{exercises}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
+    \item Suppose we roll eight fair six-sided dice.
+        \begin{enumerate}
+            \item What is the probability that all eight dice show a 6?
+            \item What is the probability that all eight dice show the same number?
+            \item What is the probability that the sum of the eight dice is equal to 9?
+        \end{enumerate}
+    \item Suppose we roll 10 fair six-sided dice. What is the probability that there are exactly two 2's showing?
+    \item Suppose we flip 100 fair independent coins. What is the probability that at least three of them are heads? (Hint: You may wish to use \autoref{eq:131}.)
+    \item Suppose we are dealt five cards from an ordinary 52-card deck. What is the probability that
+        \begin{enumerate}
+            \item we get all four aces, plus the king of spades?
+            \item  all five cards are spades?
+            \item we get no pairs (i.e., all five cards are different values)?
+            \item we get a full house (i.e., three cards of a kind, plus a different  pair)?
+        \end{enumerate}
+    \item Suppose we deal four 13-card bridge hands from an ordinary 52-card deck. What is the probability that
+        \begin{enumerate}
+            \item all 13 spades end up in the same hand?
+            \item all four aces end up in the same hand?
+        \end{enumerate}
+    \item Suppose we pick two cards at random from an ordinary 52-card deck. What is the probability that the sum of the values of the two cards (where we count jacks, queens, and kings as 10, and count aces as 1) is at least 4?
+    \item Suppose we keep dealing cards from an ordinary 52-card deck until the first jack appears. What is the probability that at least 10 cards go \emph{before} the first jack?
+    \item In a well-shuffled ordinary 53-card deck, what is the probability that the ace of spades and ace of clubs are adjacent to each other?
+    \item Suppose we repeatedly roll two fair six-sided dice, considering the \emph{sum} of the two values showing each time. What is the probability that the first time the sum is exactly 7 is on the third roll ?
+    \item Suppose we roll three fair six-sided dice. What is the probability that two of them show the same value, but the third one does not?
+    \item Consider two urns, labeled urn \#1 and urn \#2. Suppose urn \#1 has 5 red and  7 blue balls. Suppose urn \#2 has 6 red and 12 blue balls. Suppose we pick three balls uniformly at random from each of the two urns. What is the probability that all six chosen balls are the same color?
+    \item Suppose we roll a fair six-sided die and flip three fair coins. What is the probability that the total number of heads is equal to the number showing on the die?
+    \item Suppose we flip two pennies, three nickels, and four dimes. What is the probability that the total value of all coins showing heads is equal to \$0.31?
 \end{exercises}
 
 \begin{problems}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
-    \item \todo{add it}
+    \item Show that a probability measure defined by \autoref{eq:141} is always additive in the sense of \autoref{eq:additive_rule}.
+    \item Suppose we roll eight fair six-sided dice. What is the probability that the sum of the eight dice is equal to 9? What is the probability that the sum of the eight dice is equal to 10? What is the probability that the sum of the eight dice is equal to 11?
+    \item Suppose we roll one fair six-sided die, and flip six coins. What is the probability that the number of heads is equal to the number showing on the die?
+    \item Suppose we roll 10 fair six-sided dice. What is the probability that there are exactly two 2's showing \emph{and} exactly three 3's showing?
+    \item Suppose we deal four 13-card bridge hands from an ordinary 52-card deck. What is the probability that the North and East hands each have exactly the same number of spades?
+    \item Suppose we pick a card at random from an ordinary 52-card deck and also flip 10 fair coins. What is the probability that the number of heads equals the value of the card (where we count jacks, queens, and kings as 10, and count aces as 1) ?
 \end{problems}
 
 \begin{challeges}
-    \item \todo{add it}
-    \item \todo{add it}
+    \item Suppose we roll two fair six-sided dice and flip 12 coins. What is the probability that number of heads is equal to the sum of the numbers showing on two dice?
+    \item (\emph{The} \term{birthday problem}) Suppose there are $C$ people, each of whose birthdays (month and day only) are equally likely to fall on any of the 365 days of a normal (i.e., non-leap) year.
+        \begin{enumerate}
+            \item Suppose $C=2$. What is the probability that the two people have the same exact birthday?
+            \item Suppose $C\geqslant 2$. What is the probability that all $C$ people have the same exact birthday?
+            \item Suppose $C\geqslant 2$. What is the probability that \emph{some pair} of the $C$ people have the same exact birthday? (Hint: You may wish to use \autoref{eq:131}.)
+            \item What is the smallest value of $C$ such that the probability in part (c) is more than 0.5? Do you find this result surprising?
+        \end{enumerate}
 \end{challeges}

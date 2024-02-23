@@ -2,9 +2,9 @@
 A formal definition of probability begins with a \term{sample space}, often written  $S$. This
 sample space is any set that lists all possible \term{outcomes} (or, \term{responses})
 of some unknown experiment or situation. For example, perhaps
-\begin{equation}
-    S =  \{\text{rain, snow, clear}\} \notag
-\end{equation}
+\begin{equation*}
+    S =  \{\text{rain, snow, clear}\}
+\end{equation*}
 when predicting tomorrow's weather. Or perhaps $S$ is the set of all positive real numbers, when predicting next
 week's stock price. The point is, $S$ can be any set at all, even an infinite. We usually write $s$ for an element of
 $S$, so that $s \in S$. Note that $S$ describes only those things that we are interested in; if we are studying
@@ -52,7 +52,7 @@ We now formalize the definition of a probability model.
 \begin{definition}[Probability model]
     A \term{probability model}    consists of a nonempty set called the sample space $S$; a collection of events that
     are subsets of $S$; and a probability measure $P$ assigning a probability between 0 and 1 to each event, with
-    $P(\emptyset)=0$ and $P(S)=1$ and with $P$ additive as in \eqref{eq:additive_rule}.
+    $P(\emptyset)=0$ and $P(S)=1$ and with $P$ additive as in \autoref{eq:additive_rule}.
 \end{definition}
 
 \begin{example}

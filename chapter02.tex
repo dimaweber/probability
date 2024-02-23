@@ -7,6 +7,93 @@
 \section{Discrete Distributions}
 \lipsum[6-8]
 \subsection{Important Discrete Distributions}
-\lipsum[9-11]
+\lipsum[9]
+\begin{figure}[h]
+    \centering
+    \begin{gnuplot}[terminal=epslatex, terminaloptions=color]
+        set format x "%2.0f"
+        set format y "%3.2f"
+        set key inside right top vertical Right noreverse enhanced autotitles box linetype -1 linewidth 1.000
+        # set label 1 "mu" at 4.25, 0.0239117, 0 left norotate back nopoint offset character 0, 0, 0
+        # set label 2 "sigma" at 6.03536, 0.135531, 0 left norotate back nopoint offset character 0, 0, 0
+        # set arrow 1 from 3.75, 0, 0 to 3.75, 0.223452, 0 nohead back nofilled linetype -1 linewidth 1.000
+        # set arrow 2 from 3.75, 0.135531, 0 to 5.53536, 0.135531, 0 nohead back nofilled linetype -1 linewidth 1.000
+        set samples 20
+        #  set ytics 0.00000,0.0239117,0.239117 norangelimit
+        set title "binomial PDF"
+        set xlabel 'x $\rightarrow$'
+        set xrange [ 0 : 20 ] noreverse nowriteback
+        set ylabel 'probability density $\rightarrow$'
+        #set yrange [ 0.00000 : 0.239117 ] noreverse nowriteback
+        isint(x)=(int(x)==x)
+        rnd(x) = floor(x+0.5)
+        binom(x,n,p)=p<0.0||p>1.0||n<0||!isint(n)?1/0:  !isint(x)?1/0:x<0||x>n?0.0:exp(lgamma(n+1)-lgamma(n-x+1)-lgamma(x+1)+x*log(p)+(n-x)*log(1.0-p))
+        xmin = 0
+        xmax = 20
+        #ymax = 0.239117116019604
+        plot binom(rnd(x), 20, 0.5) with points ps 1 pt 7 t 'binom($n=20,\:\theta=0.5$)', binom(rnd(x),20, 0.2) with points ps 1 pt 6 t 'binom($n=20,\:\theta=0.2$)'
+    \end{gnuplot}
+    \caption{an example of gnuplot for reference}
+    \label{fig:binomial}
+\end{figure}
+\lipsum[10]
+\begin{figure}[h]
+    \centering
+    \begin{gnuplot}[terminal=epslatex, terminaloptions=color]
+        set format x "%2.0f"
+        set format y "%3.2f"
+        set key inside right top vertical Right noreverse enhanced autotitles box linetype -1 linewidth 1.000
+        # set label 1 "mu" at 4.25, 0.0239117, 0 left norotate back nopoint offset character 0, 0, 0
+        # set label 2 "sigma" at 6.03536, 0.135531, 0 left norotate back nopoint offset character 0, 0, 0
+        # set arrow 1 from 3.75, 0, 0 to 3.75, 0.223452, 0 nohead back nofilled linetype -1 linewidth 1.000
+        # set arrow 2 from 3.75, 0.135531, 0 to 5.53536, 0.135531, 0 nohead back nofilled linetype -1 linewidth 1.000
+        set samples 15
+        #        set ytics 0.00000,0.0239117,0.239117 norangelimit
+        set title "geometric PDF"
+        set xlabel 'x $\rightarrow$'
+        set xrange [ 0 : 15 ] noreverse nowriteback
+        set ylabel 'probability density $\rightarrow$'
+        #set yrange [ 0.00000 : 0.239117 ] noreverse nowriteback
+        isint(x)=(int(x)==x)
+        rnd(x) = floor(x+0.5)
+        geometric(x,p)=p<=0||p>1?1/0:  !isint(x)?1/0:x<0||p==1?(x==0?1.0:0.0):exp(log(p)+x*log(1.0-p))
+        xmin = 0
+        xmax = 20
+        #ymax = 0.239117116019604
+        plot geometric(rnd(x), 0.5) with points ps 1 pt 7 t 'geometric($\theta=0.5$)', geometric(rnd(x), 0.2) with points ps 1 pt 6 t 'geometric($\theta=0.2$)'
+    \end{gnuplot}
+    \caption{an example of gnuplot for reference}
+    \label{fig:geometric}
+\end{figure}
+\lipsum[11]
+\begin{figure}[h]
+    \centering
+    \begin{gnuplot}[terminal=epslatex, terminaloptions=color]
+        set format x "%2.0f"
+        set format y "%3.2f"
+        set key inside right top vertical Right noreverse enhanced autotitles box linetype -1 linewidth 1.000
+        # set label 1 "mu" at 4.25, 0.0239117, 0 left norotate back nopoint offset character 0, 0, 0
+        # set label 2 "sigma" at 6.03536, 0.135531, 0 left norotate back nopoint offset character 0, 0, 0
+        # set arrow 1 from 3.75, 0, 0 to 3.75, 0.223452, 0 nohead back nofilled linetype -1 linewidth 1.000
+        # set arrow 2 from 3.75, 0.135531, 0 to 5.53536, 0.135531, 0 nohead back nofilled linetype -1 linewidth 1.000
+        set samples 15
+        #        set ytics 0.00000,0.0239117,0.239117 norangelimit
+        set title "geometric PDF"
+        set xlabel 'x $\rightarrow$'
+        set xrange [ 0 : 15 ] noreverse nowriteback
+        set ylabel 'probability density $\rightarrow$'
+        #set yrange [ 0.00000 : 0.239117 ] noreverse nowriteback
+        isint(x)=(int(x)==x)
+        rnd(x) = floor(x+0.5)
+        negbin(x,r,p)=r<=0||!isint(r)||p<=0||p>1?1/0:  !isint(x)?1/0:x<0?0.0:p==1?(x==0?1.0:0.0):exp(lgamma(r+x)-lgamma(r)-lgamma(x+1)+  r*log(p)+x*log(1.0-p))
+        xmin = 0
+        xmax = 20
+        #ymax = 0.239117116019604
+        plot negbin(rnd(x), 2, 0.5) with points ps 1 pt 7 t 'negbin($r=2,\:\theta=0.5$)', negbin(rnd(x),10, 0.5) with points ps 1 pt 6 t 'negbin($r=10,\:\theta=0.5$)'
+    \end{gnuplot}
+    \caption{an example of gnuplot for reference}
+    \label{fig:negative_binomial}
+\end{figure}
+\lipsum[12]
 \subsection{Further Proofs (Advanced)}\label{сhap:rvar_and_dist_sec:adv}
-\lipsum[12-18]
+\lipsum[13-18]
