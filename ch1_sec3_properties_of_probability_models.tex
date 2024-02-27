@@ -22,6 +22,7 @@ S$. We have the following basic theorem that allows us to decompose the calculat
 the sum of the probabilities of the sets $A_i \cap B$. Often these are easier to compute.
 
 \begin{theorem}[\term{Law of total probability}, \emph{unconditioned version}]
+        \label{theorem:law_of_total_probability_unconditional_version}
     Let $A_1, A_2, \ldots$ be events that form a partition of the sample space $S$. Let $B$ be any event. Then
     $$
     P(B) = P(A_1 \cap B) + P(A_2 \cap  B) + \ldots\,.
@@ -88,7 +89,7 @@ More general, even if we do not have $A \supseteq B$, we have the following prop
     \end{equation}
     Substituting \autoref{eq:prf_2} and \autoref{eq:prf_3} into \autoref{eq:prf_1}, the result follows.
 \end{proof}
-A more general version of the principle of inclusion-exclusion is developed in \autoref{challenge:1310}.
+A more general version of the principle of inclusion-exclusion is developed in\todo{change 'item C.1.3.1' to 'Challenge 1.3.1`} \autoref{challenge:1310}.
 
 Sometimes we do not need to evaluate the probability content of a union; we need only know it is bounded above by sum
 of the probabilities of the individual events. This is called subadditivity.

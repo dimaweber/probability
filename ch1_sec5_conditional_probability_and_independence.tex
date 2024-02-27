@@ -27,7 +27,203 @@ In general, given two events $A$ and $B$ with $P(B)>0$, the \term{conditional pr
 
 The motivation for \autoref{eq:conditional_probability_definition} is as follow. The event $B$ will occur a fraction $P(B)$ of the time. Also, \emph{both} $A$ and $B$ will occur a fraction $P(A \cap B)$ of the time. The ratio $P(A \cap B) / P(B)$ thus gives the \emph{proportion} of the times when $B$ occurs, that $A$ \emph{also} occurs. That is, if we \emph{ignore} all the times that $B$ does not occur and consider only those times that $B$ does occur, then the ratio $P(A \cap B)/P(B)$ equals the fraction of the time that $A$ will also occur. This is precisely what is meant by the conditional probability of $A$ given $B$.
 
-In the example just computed, $A$ is the event that the first coin is heads, while $B$ is the event that exactly two coins were heads. Hence, in
+In the example just computed, $A$ is the event that the first coin is heads, while $B$ is the event that exactly two coins were heads. Hence, in mathematical terms, $A=\{HHH, HHT, HTH, HTT\}$ and $B=\{HHT, HTH, THH\}$. It follows that $A \cap B=\{HHT, HTH\}$. Therefore
+$$
+    P(A \mid B) = \frac{P(A\cap B)}{P(B)} = \frac{P(\{HHT, HTH\})}{P(\{HHT, HTH, THH\})} = \frac{2/8}{3/8}=2/3\,,
+$$
+as already computed.
+
+On the other hand, we similarly compute that
+$$
+    P(\text{first coin tails} \mid \text{two coins heads}) =  1/3\,.
+$$
+We thus see that conditioning on some event (such as ``two coins heads'') can make probability either increase (as for event ``first coin heads'') or decrease (as for the event ``first coin tails'').
+
+The definition of $P(A \mid B)$ immediately leads to the \term{multiplication formula}
+\begin{equation}
+    \label{eq:152}
+    P(A \cap B) = P(A)\cdot P(B \mid A)\,.
+\end{equation}
+This allows us to compute the joint probability of $A$ and $B$ when we are given the probability of $A$ and the conditional probability of $B$ given $A$.
+
+Conditional probability allows us to express \autoref{theorem:law_of_total_probability_unconditional_version}, the law of total probability. in a different and sometimes more helpful way.
+\begin{theorem}[Law of total probability, conditioned version]
+    \label{theorem:law_of_total_probability_conditioned_version}
+    Let $A_1, A_2,\ldots$, be events that form a partition of the sample space $S$, each of positive probability. Let $B$ be any event. Then
+    $$
+        P(B)=P(A_1)\cdot P(B\mid A_1)+P(A_2)\cdot P(B\mid A_2)+\ldots\,.
+    $$
+\end{theorem}
+\begin{proof}
+    The multiplication \autoref{eq:152} gives that $$P(A_i\cap B) = P(A_i)\cdot P(B\mid A_i)\,.$$ The result then follows immediately from \autoref{theorem:law_of_total_probability_unconditional_version}.
+\end{proof}
+
+\begin{example}
+    Suppose a class contains 60\% girls and 40\% boys. Suppose that 30\% of the girls have long hair, and 20\% of the boys have long hair. A student is chosen uniformly at random from the class. What is the probability that the chosen student will have long hair?
+
+    To answer this, we let $A_1$ be the set of girls and $A_2$ be the set of boys. Then $\{A_1, A_2\}$ is a partition of the class. We further let $B$ be the set of all students with long hair.
+
+    We are interested in $P(B)$. We compute this by \autoref{theorem:law_of_total_probability_conditioned_version} as
+    $$
+        P(B)=P(A_1)\cdot P(B\mid A_1) + P(A_2)\cdot P(B\mid A_2) = 0.6 \cdot 0.3 + 0.4 \cdot 0.2 = 0.26\,,
+    $$
+    so there is a 26\% chance that the randomly chosen student has long hair.
+\end{example}
+
+Suppose now that $A$ and $B$ are two events, each of positive probability. In some applications, we are given the values $P(A)$, $P(B)$, and $P(B\mid A)$ and want to compute $P(A\mid B)$. The following result establishes a simple relationship among these quantities.
+
+\begin{theorem}[Bayes' theorem]\label{theorem:bayes_theorem}
+    Let $A$ and $B$ be two events, each of positive probability. Then
+    $$
+        P(A \mid{} B) = \frac{P(A)}{P(B)}\cdot P(B \mid{} A)\,.
+    $$
+\end{theorem}
+\begin{proof}
+    We compute that
+    $$
+        \frac{P(A)}{P(B)}\cdot{}P(B\mid{}A)=\frac{P(A)}{P(B)}\cdot\frac{P(A\cap{}B)}{P(A)}=\frac{P(A\cap{}B)}{P(B)}=P(A \mid B)\,.
+    $$
+    This gives the result.
+\end{proof}
+Standard application of the multiplication formula, the law of total probabilities, and Bayes' theorem occur with \term{two-stage systems}. The response for such systems can be thought of as occurring in two steps or stages. Typically, we are given the probabilities for the first  stage and the conditional probabilities for the second stage. The multiplication formula is then  used to calculate joint probabilities for what happens at both stages; the law of total probability is used to compute the probabilities for what happens at the second stage; and Bayes' theorem is  used to calculate the conditional probabilities for the first stage, given what has occurred at the second stage. We illustrate this by an example.
+
+\begin{example}
+    Suppose urn \#1 has 3 red and 2 blue balls, and urn \#2 has 4 red and 7 blue balls. Suppose one of the two urns is selected with probability 1/2 each, and then one of the balls within that urn is picked uniformly at random.
+
+    What is the probability that urn \#2 is selected at the first stage (event $A$) and a blue ball is selected at the second stage (event $B$)? The multiplication formula provides the correct way to compute this probability as
+    $$
+        P(A \cap B) = P(A)\cdot P(B \mid A)=\frac{1}{2} \cdot \frac{7}{11} = \frac{7}{22}\approx0.318\,.
+    $$
+
+    Suppose instead we want to compute the probability that a blue ball is obtained. Using the law of total probability (\autoref{theorem:law_of_total_probability_conditioned_version}), we have that
+    $$
+        P(B)=P(A)\cdot{}P(B\mid{}A)+P(A^c)\cdot{}P(B\mid{}A^c)=\frac{1}{2}\cdot\frac{2}{5}+\frac{1}{2}\cdot\frac{7}{11}=\frac{22}{110}+\frac{35}{110}=\frac{57}{110}\approx0.518\,.
+    $$
+
+    Now suppose we are given the information that the ball picked is blue. Then, using Bayes' theorem, the conditional probability that we had selected urn \#2 is given by
+    $$
+        P(A\mid B)=\frac{A}{B}\cdot P(B\mid A)= \frac {\frac{1}{2}} {\frac{1}{2}\cdot\frac{2}{5}+\frac{1}{2}\cdot\frac{7}{11}} \cdot \frac{7}{11} = \frac{35}{57}\approx0.614\,.
+    $$
+
+    Note that, without the information that a blue ball occurred at the second stage, we have that $P(\text{urn \#2 selected})=1/2$\,. We see that knowing the ball was blue significantly \emph{increases} the probability that urn \#2 was selected.
+\end{example}
+We can represent a two-stage system using a tree, as in \autoref{fig:151}. It can be helpful to draw such a figure when carrying out probability computations for such systems. There are two possible outcomes at the first stage and three possible outcomes at the second stage.
+\begin{figure}[h]
+\digraph[scale=0.6]{fig151}{
+    #splines=ortho;
+    layout=dot;
+    node [shape=box];
+    S -> fs1;
+    S -> fs2;
+    fs1 -> ss1;
+    fs1 -> ss2;
+    fs1 -> ss3;
+    fs2 -> ss1a;
+    fs2 -> ss2a;
+    fs2 -> ss3a;
+    S [label=S]
+    fs1 [label="first stage\-outcome 1"];
+    fs2 [label="first stage\-outcome 2"];
+    ss1 [label="second stage\-outcome 1"];
+    ss2 [label="second stage\-outcome 2"];
+    ss3 [label="second stage\-outcome 3"];
+    ss1a [label="second stage\-outcome 1"];
+    ss2a [label="second stage\-outcome 2"];
+    ss3a [label="second stage\-outcome 3"];
+}
+\caption{A tree depicting a two-stage system with two possible outcomes at the first stage and three possible outcomes at the second stage.\label{fig:151}}
+\end{figure}
 
 \subsection{Independence of Events}\label{independence_of_events}
-\lipsum[1-10]
+Consider now \autoref{example:144}, where we roll one fair die and flip one fair coin, so that
+$$
+S=\{1H, 2H, 3H, 4H, 5H, 6H, 1T, 2T, 3T, 4T, 5T, 6T\}
+$$
+and $\forall s\in S:P(\{s\})=1/12$. Here the probability that the die comes up 5 is equal to $P(\{5H,5T\})=2/12=1/6$, as it should be.
+
+But now, what if the probability that die comes 5, \emph{conditional} on knowing that the coin came up tails? Well, we can compute that probability as
+\begin{equation*}
+    \begin{split}
+P(\text{die = 5}\mid\text{coin = tails}) &= \frac{P(\text{die = 5 and coin = tails})}{P(\text{coin = tails})} \\
+                                         & = \frac{P(\{5T\})}{P(\{1T,2T,3T,4T,5T,6T\})}= \\
+                                         &=\frac{1/12}{6/12}=\frac1 6\,.
+    \end{split}
+\end{equation*}
+This is the same as the unconditional probability, $P(\text{die = 5})$. It seems that knowing that the coin was tail had no effect on the probability that the coin came up 5. This property called \term{independence}. We say that the coin and the die are \emph{independent} in this example, to indicate that the occurrence of one does not have any influence on the probability ot the other occurrence.
+
+More formally, we make the following definition.
+
+\begin{definition}\label{def:152}
+    Two events are independent if
+    $$
+        P(A\cap B) = P(A) \cdot P(B)\,.
+    $$
+\end{definition}
+Now, because $P(A\mid B)=P(A\cap B)/P(B)$, we see that $A$ and $B$ are independent if and only if $P(A\mid B)=P(A)$ or $P(B\mid A)=P(B)$, provided that $P(A)>0$ and $P(B)>0$. Definition \autoref{def:152} has the advantage that it remains valid even if $P(B)=0$ or $P(A)=0$, respectively. Intuitively, events $A$ and $B$ are independent if neither one has any impact in the probability of the other.
+
+\begin{example}
+    In \autoref{example:144}, if $A$ is the event that the die was 5, and $B$ is the event that the coin was tails, then
+    $$
+    \begin{aligned}
+        P(A) &= P(\{5H,5T\}) &=2/12 =1/6  \\
+        P(B) &= P(\{1T,2T,3T,4T,5T,6T\}) &= 6/12 = 1/2
+    \end{aligned}
+    $$
+    Also, $P(A \cap B) = P(\{5T\})=1/12$, which is indeed equal to $\dfrac16\cdot\dfrac12$. Hence, $A$ and $B$ are independent in this case.
+\end{example}
+For multiple events, the definition of independence is somewhat more involved.
+\begin{definition}    \label{def:153}
+    A collection of events $A_1, A_2, A_3,\ldots$ are \emph{independent} if
+    $$
+        P(A_{i_1}\cap\dots\cap A_{i_j}) = P(A_{i_1})\cdot\ldots\cdot P(A_{i_j})
+    $$
+    for \emph{any} finite subcollection $A_{i_1},\dots,A_{i_j}$ of distinct events.
+\end{definition}
+\begin{example}
+    According to \autoref{def:153}, three events, $A$, $B$, and $C$ are independent if \emph{all} of the following equations hold:
+    \begin{align}
+        \begin{split}
+            \label{eq:153}
+            P(A \cap B) &= P(A)\cdot P(B)\,, \\
+            P(A \cap C) &= P(A)\cdot P(C)\,, \\
+            P(B \cap C) &= P(B) \cdot P(C)\,,
+        \end{split}
+    \intertext{and}
+    P(A \cap B \cap C)     &= P(A)\cdot P(B) \cdot P(C)\,.\label{eq:154}
+    \end{align}
+
+    It is not sufficient to check just \emph{some} of these conditions to verify independence. For example, suppose that $S=\{1,2,3,4\}$, with $P(\{1\})=P(\{2\})=P(\{3\})=P(\{4\})=1/4$. Let $A=\{1,2\}$, $B=\{1,3\}$, and $C=\{1,4\}$. Then each of the three equations \eqref{eq:153} holds, but \autoref{eq:154} does not hold. Here, the events $A$, $B$, and $C$ are called \term{pairwise independent}, but they are not independent.
+\end{example}
+
+\begin{summary}
+    \item Conditional probability measures the probability that $A$ occurs given that $B$ occurs; it it given by $P(A\mid B)=P(A \cap B) / P(B)$.
+    \item Conditional probability satisfies its own law of total probability.
+    \item Events are independent if they have no effect on each other's probabilities. Formally, this means that $P(A \cap B)=P(A)\cdot P(B)$.
+    \item If $A$ and $B$ are independent, and $P(A)>0$ and $P(B)>0$, then $P(A\mid B)=P(A)$ and $P(B\mid A)=P(B)$.
+\end{summary}
+
+\begin{exercises}
+    \item Suppose that we roll four fair six-sided dice.
+        \begin{enumerate}
+            \item What is conditional probability that the first die shows 2, conditional on the event that exactly three dice show 2?
+            \item What is conditional probability that the first die shows 2, conditional on the event that \emph{at least} three dice show 2?
+        \end{enumerate}
+    \item Suppose we flip two fair coins and roll one fair six-sided die.
+        \begin{enumerate}
+            \item What is probability that the number of heads equals the number showing on the die?\label{it:a}
+            \item What is conditional probability that the number of heads equals the number showing on the die, conditional on knowing that the die showed 1?\label{it:b}
+            \item Is the answer for \autoref{it:b} larger or smaller than the answer for \autoref{it:a}? Explain intuitively why this is so.
+        \end{enumerate}
+    \item Suppose we flip three fair coins
+        \begin{enumerate}
+            \item What is the probability that all three coins are heads?
+            \item What is the conditional probability  that all three coins are heads, conditional on knowing that the number of heads is odd?
+            \item What is the conditional probability that all three coins are heads, given that the number of heads is even?
+        \end{enumerate}
+    \item Suppose we deal five cards from an ordinary 53-card deck. What is the conditional probability that all five cards are spades, given that at least four of them are spades?
+    \item Suppose we deal five cards from an ordinary 52-card deck. What is the conditional probability that the hand contains all four aces, given that the hand contains at least four aces?
+    \item Suppose we deal five cards from an ordinary 52-card deck. What is the conditional probability that the hand contains no pairs, given that it contains no spades?
+    \item Suppose a baseball pitcher throws fastballs 80\% of the time and curveballs 20\% of the time. Suppose a batter hits run on 8\% of all fastball pitches, and on 5\% of all curveball pitches. What is the probability that this batter will hit a home run on this pitcher's next pitch?
+    \item Suppose the probability of snow is 20\%, and the probability of a traffic accident is 10\%. Suppose further that the \emph{conditional} probability of an accident, given that it snows, is 40\%. What is the conditional probability that it snows, given that there is an accident?
+    \item Suppose we roll two fair six-sided dice, one red and one blue. Let $A$ be the event that the two dice show the same value. Let $B$ be the event that the sum of the two dice is equal to 12. Let $C$ be the event that the red die shows 4. Let $D$ be the event that the blue die shows 4.
+\end{exercises}

@@ -16,3 +16,7 @@
 *.run.xml
 *.out.ps
 *.synctex.gz
+*-gnuplottex-*.eps
+*-gnuplottex-*.gnuplot
+*-gnuplottex-*.tex
+*.gnuploterrors
