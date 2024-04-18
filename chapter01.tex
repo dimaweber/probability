@@ -9,7 +9,30 @@ This chapter introduces the basic concept of the entire course,\linebreak[2] nam
 \input{ch1_sec5_conditional_probability_and_independence}
 
 \section{Continuity of $P$}
-\lipsum[1-10]
+Suppose $A_1, A_2, \ldots$ is a sequence of events that are getting ``closer'' (in some sense) to another event, $A$. Then we might expect that the probabilities $P(A_1), P(A_2), \ldots$ are getting closer to $P(A)$, i.e., that $lim_{n\to\inf}P(A_n)=P(A)$. But can we be sure about this?
 
+Properties like this, which say that $P(A_n)$ is close to $P(A)$ whenever $A_n$ is ``close'' to $A$, are called \term{continuity properties}. The above question can thus be translated, roughly, as asking whether or not probability measures $P$ are ``continuous''. It turns out that $P$ is indeed continuous in some sense.
+
+Specifically, let us write $\{A_n\} \nearrow A$ and say that the sequence $\{A_n\}$ \emph{increases} to $A$, if $A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots$, and also $\bigcup^{\inf}_{n=1} A_n=A$. That is, the sequence of events in an \emph{increasing} sequence, and furthermore its union is equal to $A$. For example, if $A_n=(1/n,n]$, then $A_1 \subseteq A_2\subseteq\cdots$ and $\bigcup_{n=1}^{\inf}A_n=(0,\inf)$. Hence, ${(1/n,n]}\nearrow(0,\inf)$. \autoref{fig:161} depicts an increasing sequence of subsets.
+
+Similarly, let us write $\{A_n\}\searrow A$ and say that the sequence $\{A_n\}$ \emph{decreases} to $A$, if $A_1\supseteq A_2\supseteq A_3 \supseteq\cdots$, and also $\bigcap_{n=1}^{\inf}A_n=A$. That is, the sequence of events is a \emph{decreasing} sequence, and furthermore its intersection is equal to $A$. For example, if $A_n=(-1/n,1/n]$, then $A_1\supseteq A_2 \supseteq \cdots$ and $\bigcap_{n=1}^{\inf}A_n=\{0\}$. Hence, $\{(-1/n,1/n]\}\searrow\{0\}$. \autoref{fig:162} depicts a decreasing sequence of subsets.
+\begin{figure}
+    \todo{add picture here}
+    \caption{An increasing sequence of subsets $A_1\subseteq A_2 \subseteq A_3 \subseteq \dots$.\label{fig:161}}
+\end{figure}
+\begin{figure}
+    \todo{add picture here}
+    \caption{A decreasing sequence of subsets $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$.\label{fig:162}}
+\end{figure}
+We will consider such sequences of sets at several points in the text. For this we need the following result.
+\begin{theorem}
+    Let $A,A_1, A_2, \ldots$ be events, and suppose that either $\{A_n\}\nearrow A$ or $\{A_n\}\searrow A$. Then
+    $$
+    \lim_{n\to\inf}P(A_n)=P(A)\,.
+    $$
+\end{theorem}
+\begin{proof}
+    See \autoref{ch2:adv_proofs} for the proof of this theorem.
+\end{proof}
 \section{Further Proofs (Advanced)}\label{ch2:adv_proofs}
-\lipsum[1-10]
+\lipsum

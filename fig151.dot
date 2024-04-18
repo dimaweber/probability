@@ -1,0 +1,22 @@
+digraph fig151 {
+##splines=ortho;
+layout=dot;
+node [shape=box];
+S -> fs1;
+S -> fs2;
+fs1 -> ss1;
+fs1 -> ss2;
+fs1 -> ss3;
+fs2 -> ss1a;
+fs2 -> ss2a;
+fs2 -> ss3a;
+S [label=S]
+fs1 [label="first stage\noutcome 1"];
+fs2 [label="first stage\noutcome 2"];
+ss1 [label="second stage\noutcome 1"];
+ss2 [label="second stage\noutcome 2"];
+ss3 [label="second stage\noutcome 3"];
+ss1a [label="second stage\noutcome 1"];
+ss2a [label="second stage\noutcome 2"];
+ss3a [label="second stage\noutcome 3"];
+}

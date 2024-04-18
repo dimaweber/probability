@@ -226,4 +226,61 @@ For multiple events, the definition of independence is somewhat more involved.
     \item Suppose a baseball pitcher throws fastballs 80\% of the time and curveballs 20\% of the time. Suppose a batter hits run on 8\% of all fastball pitches, and on 5\% of all curveball pitches. What is the probability that this batter will hit a home run on this pitcher's next pitch?
     \item Suppose the probability of snow is 20\%, and the probability of a traffic accident is 10\%. Suppose further that the \emph{conditional} probability of an accident, given that it snows, is 40\%. What is the conditional probability that it snows, given that there is an accident?
     \item Suppose we roll two fair six-sided dice, one red and one blue. Let $A$ be the event that the two dice show the same value. Let $B$ be the event that the sum of the two dice is equal to 12. Let $C$ be the event that the red die shows 4. Let $D$ be the event that the blue die shows 4.
+        \begin{enumerate}
+            \item Are $A$ and $B$ independent?
+            \item Are $A$ and $C$ independent?
+            \item Are $A$ and $D$ independent?
+            \item Are $C$ and $D$ independent?
+            \item Are $A$, $C$, and $D$ all independent?
+        \end{enumerate}
+    \item Consider two urns, labeled urn \#1 and urn \#2. Suppose, as in \autoref{exercise:1411}, that urn \#1 has 5 red and 7 blue balls, that urn \#2 has 6 red and 12 blue balls, and that we pick three balls uniformly at random from each of the two urns. Conditional on the fact that all six chosen balls are the same  color, what is the conditional probability that this color is red?
+    \item Suppose we roll a fair six-sided die and ten flip a number of fair coins equal to the number showing on the die. (For example, if the die shows 4, then we flip 4 coins.)
+        \begin{enumerate}
+            \item What is the probability that the number of heads equals 3?
+            \item Conditional on knowing that the number of heads equals 3, what is the conditional probability that the die showed the  number 5?
+        \end{enumerate}
+    \item Suppose we roll a fair six-sided die and then pick a number of cards from a well-shuffled deck equal to the number showing on the die. (For example, if the die shows 4, then we pick 4 cards.)
+        \begin{enumerate}
+            \item What is the probability that the number of jacks in our hand equals 2?
+            \item Conditional on knowing that the number of jacks in our hand equals 2, what is the conditional probability that the die showed the number 3?
+        \end{enumerate}
 \end{exercises}
+
+\begin{problems}
+    \item Consider three cards, as follows: One is red on both sides, one is black on both sides, and one is red on one side and black in the other. Suppose the cards are placed in a hat, and one is chosen ab random. Suppose further that this card is placed flat on the table, so we can see one side only.
+        \begin{enumerate}
+            \item What is the probability that this one side is red?
+            \item \label{problem:1513b}Conditional on this one side being red, what is the probability that the card showing is the one that is red on both sides? (Hint: The answer is somewhat surprising.)
+            \item Suppose you wanted to verify the answer in  \autoref{problem:1513b}, using an actual, physical experiment. Explain how you could do this.
+        \end{enumerate}
+    \item Prove that $A$ and $B$ are independent if and only if $A^c$ and $B$ are independent.
+    \item Let $A$ and $B$ be events of positive probability. Prove that $P(A\mid B) > P(A)$ if and only if $P(B\mid A)>P(B)$.
+\end{problems}
+
+\begin{challeges}
+    \item Suppose we roll three fair six-sided dice. Compute the conditional probability that the first die shows 4, given that the sum of the three numbers showing is 12.
+    \item (\term{The game of craps}) The game of craps is played by rolling two fair, six-sided dice. On the first roll, if the sum of the two numbers showing equals 2, 3, or 12, then the player immediately loses. If the sum equals 7 or 11, then the player immediately wins. If the sum equals any other value, then this value becomes the player's ``point''. The player then repeatedly rolls the two dice, until such time as he or she either rolls the point value again (in which case he or she wins) or rolls a 7 (in which case he or she loses).
+        \begin{enumerate}
+            \item \label{challenge:1517a}Suppose the player's point is equal to 4. Conditional on this, what is the conditional probability that he or she will win(i.e., will roll another 4 before rolling a 7)? (Hint: The final roll will be either a 4 or 7; what is the conditional probability that it is 4?)
+            \item \label{challenge:1517b}For $2\leqslant i \leqslant 12$, let $p_i$ be the conditional probability that the player will win, conditional on having rolled $i$ in the first roll. Compute $p_i$ for all $i: 2 \leqslant i \leqslant 12$. (Hint: You've already done this for $i=4$ in \autoref{challenge:1517a}. Also, the cases $i=2,3,7,11,12$ are trivial. The other cases are similar to the $i=4$ case.)
+            \item Compute the overall probability that a player will win at craps. (Hint: Use \autoref{challenge:1517b} and \autoref{theorem:law_of_total_probability_conditioned_version}.)
+        \end{enumerate}
+    \item \label{challenge:1518}(\term{The Monty Hall problem}) Suppose there are three doors, labeled $A$, $B$, and $C$. A new car is behind one of the three doors, but you don't know which. You select one of the doors, say, door $A$. The host then opens one of doors $B$ or $C$, as follows: If the car is behind $B$, then they open  $C$; if the car is behind $C$, then they open $B$; if the car is behind $A$, then they open either $B$ or $C$ with probability 1/2 each. (In any case, the door opened by the host will \emph{not} have the car behind it.) The host then gives you the \emph{option} of either sticking with your original door choice (i.e., $A$), or switching to the remaining unopened door (i.e., whichever of $B$ or $C$ the host did not open). You then win (i.e., get to keep the car) if and only if the car is behind your final door selection. (\cite{B2}.) Suppose for definiteness that the host opens door $B$.
+    \begin{enumerate}
+       \item \label{challenge:1518a}If you stick with your original choice (i.e., door $A$), conditional on the host having opened door $B$, then what is your probability of winning? (Hint: First condition on the true location of the car. Then use \autoref{theorem:bayes_theorem})
+       \item \label{challenge:1518b}If you switch to the remaining door (i.e., door $C$), conditional on the host having opened door $B$, then what is your probability of winning?
+       \item Do you find the result of parts \autoref{challenge:1518a} and \autoref{challenge:1518b} surprising? How could you design a physical experiment to verify the result?
+       \item Suppose we changed the rules so than, if you originally chose $A$ and the car was indeed behind $A$, then the host always opens door $B$. How would the answers to parts \autoref{challenge:1518a} and \autoref{challenge:1518b} change in this case?
+       \item \label{challenge:1518e}Suppose we change the rules so that, if you originally chose $A$, then the host always opens door $B$ \emph{no matter where the car is}. We then \emph{condition} on the fact that door $B$ happened \emph{not} to have a car behind it. How would the answers to parts \autoref{challenge:1518a} and \autoref{challenge:1518b} change in this case?
+   \end{enumerate}
+\end{challeges}
+
+\begin{discussion}
+    \item Suppose two people each flip a fair coin simultaneously. Will the results of the two flips usually be independent? Under what sorts of circumstances might they not be independent? (List as many such circumstances as you can.)
+    \item Suppose you are able to repeat an experiment many times, and you wish to check whether or not two events are independent. How might you go about this?
+    \item The Monty Hall problem (\autoref{challenge:1518}) was originally presented by Marilyn von Savant, writing in the ``Ask Marilyn'' column of \emph{Parade Magazine}. She gave the correct answer. However, many people (including some well-known mathematicians, plus many laypeople) wrote in to complain that her answer was incorrect. The controversy dragged on for months, with many letters and very strong language written by both sides (in the end, von Savan was vindicated). Part of the confusion lay in the assumptions being made, e.g., some people misinterpreted her question as that of the modified version of \autoref{challenge:1518e}. However, a lot of the confusion was simply due to mathematical errors and misunderstandings. (Source: \emph{Parade Magazine}, ``Ask Marilyn'' column, September 9, 1990; December 2, 1990; February 17, 1991; July 7, 1991.)
+    \begin{enumerate}
+        \item Does it surprise you that so many people, including well-known mathematicians, made errors in  solving this problem? Why or why not?
+        \item Does it surprise you that so many people, including many laypeople, cared so strongly about the answer to this problem? Why or why not?
+    \end{enumerate}
+\end{discussion}
